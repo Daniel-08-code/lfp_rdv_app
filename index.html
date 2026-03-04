@@ -29,120 +29,248 @@ emailjs.init("ZYecNzQfRzKaxeXi-"); // remplace par ta clé publique
 
 <style>
 :root{
---primary:#1A4D8C;
+--primary:#0A2540;
+--primary-light:#1A4D8C;
 --secondary:#C9A84C;
---light:#F8F9FA;
+--accent:#2D7FF9;
+--light:#F4F7FB;
 --gray:#E9ECEF;
 --dark:#1e1e1e;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family: 'Segoe UI', sans-serif;}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:'Segoe UI',sans-serif;
+}
 
-body{background:var(--light);color:var(--dark);line-height:1.6;}
+body{
+background:linear-gradient(180deg,#f4f7fb,#eef3fa);
+color:var(--dark);
+line-height:1.7;
+}
 
-section{padding:80px 20px;max-width:1200px;margin:auto;}
+section{
+padding:90px 20px;
+max-width:1200px;
+margin:auto;
+}
 
-h1,h2,h3{margin-bottom:20px;}
+/* ===== TITRES ===== */
+h1{
+font-size:2.8rem;
+font-weight:700;
+background:linear-gradient(90deg,#ffffff,#cfdfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
+h2{
+font-size:2rem;
+margin-bottom:40px;
+text-align:center;
+color:var(--primary);
+position:relative;
+}
+
+h2::after{
+content:"";
+width:60px;
+height:4px;
+background:var(--accent);
+display:block;
+margin:12px auto 0;
+border-radius:10px;
+}
+
+h3{
+color:var(--primary-light);
+margin-bottom:15px;
+}
+
+/* ===== BOUTONS ===== */
 .btn{
-background:var(--secondary);
+background:linear-gradient(135deg,var(--secondary),#e0b84f);
 color:white;
 padding:14px 28px;
 border:none;
 cursor:pointer;
-border-radius:5px;
+border-radius:50px;
 font-weight:bold;
-transition:0.3s;
+transition:all 0.3s ease;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
-.btn:hover{opacity:0.9;}
 
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* ===== HERO ===== */
 .hero{
-background:linear-gradient(rgba(26,77,140,0.85), rgba(26,77,140,0.85)), url('https://images.unsplash.com/photo-1554224155-1696413565d3') center/cover;
+background:linear-gradient(rgba(10,37,64,0.9),rgba(10,37,64,0.9)), 
+url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3') center/cover;
 color:white;
 text-align:center;
-padding:120px 20px;
+padding:150px 20px;
+border-bottom-left-radius:60px;
+border-bottom-right-radius:60px;
 }
-.hero h1{font-size:2.5rem;}
-.stats{margin-top:20px;font-size:0.9rem;}
 
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.hero p{
+font-size:1.2rem;
+margin:20px 0;
+color:#e0eaff;
+}
+
+.stats{
+margin-top:25px;
+font-size:0.95rem;
+color:#cfdfff;
+}
+
+/* ===== SERVICES CARDS ===== */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+}
+
 .card{
 background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:0.3s;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:all 0.3s ease;
+border-top:4px solid var(--accent);
 }
-.card:hover{transform:translateY(-5px);}
 
-.process{display:flex;flex-wrap:wrap;gap:20px;}
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+.card p{
+color:#555;
+}
+
+/* ===== PROCESS ===== */
+.process{
+display:flex;
+flex-wrap:wrap;
+gap:25px;
+}
+
 .process div{
 flex:1;
 background:white;
-padding:20px;
-border-radius:10px;
+padding:30px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
+box-shadow:0 8px 25px rgba(0,0,0,0.07);
+border-bottom:4px solid var(--primary-light);
 }
 
-.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-
+/* ===== FORM ===== */
 form{
 background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,0.1);
 }
 
-form input, form select, form textarea{
+form input, 
+form select, 
+form textarea{
 width:100%;
-padding:10px;
+padding:12px;
+margin-bottom:18px;
+border:1px solid #d9e2ec;
+border-radius:10px;
+transition:0.3s;
+font-size:0.95rem;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus{
+outline:none;
+border:1px solid var(--accent);
+box-shadow:0 0 0 3px rgba(45,127,249,0.15);
+}
+
+.error{
+border:1px solid red !important;
+}
+
+.success-message{
+color:green;
+margin-top:15px;
+font-weight:bold;
+}
+
+/* ===== FAQ ===== */
+.faq-item{
 margin-bottom:15px;
-border:1px solid var(--gray);
-border-radius:5px;
 }
 
-.error{border:1px solid red;}
-.success-message{color:green;margin-top:15px;}
-
-.faq-item{margin-bottom:10px;}
 .faq-question{
-background:var(--primary);
+background:linear-gradient(135deg,var(--primary-light),var(--accent));
 color:white;
-padding:10px;
+padding:15px;
 cursor:pointer;
-border-radius:5px;
+border-radius:12px;
+font-weight:600;
 }
+
 .faq-answer{
 display:none;
 background:white;
-padding:10px;
-border:1px solid var(--gray);
+padding:15px;
+border-radius:12px;
+margin-top:5px;
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
 }
 
+/* ===== FOOTER ===== */
 footer{
 background:var(--primary);
 color:white;
-padding:40px 20px;
+padding:50px 20px;
 text-align:center;
+margin-top:60px;
+border-top-left-radius:60px;
+border-top-right-radius:60px;
 }
 
+footer p{
+margin:8px 0;
+color:#cfdfff;
+}
+
+/* ===== COOKIE ===== */
 .cookie-banner{
 position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#000;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:var(--primary);
 color:white;
-padding:15px;
+padding:15px 25px;
+border-radius:50px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 display:flex;
-justify-content:space-between;
+gap:20px;
 align-items:center;
-font-size:0.9rem;
+font-size:0.85rem;
 }
 
+/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-.hero h1{font-size:1.8rem;}
+h1{font-size:2rem;}
+h2{font-size:1.5rem;}
+.hero{padding:120px 20px;}
 }
 </style>
 </head>
@@ -162,20 +290,35 @@ font-size:0.9rem;
 <h2>Nos Services</h2>
 <div class="services">
 <div class="card">
-<h3>Prise de rendez-vous</h3>
-<p>Conseil personnalisé pour optimiser vos finances et atteindre vos objectifs.</p>
+<h3><strong>15 minutes</strong> pour comprendre les solutions d'investissement en bourse</h3>
+<p>
+En <strong>15 minutes</strong>, découvrez des solutions concrètes pour investir en bourse de manière stratégique et sécurisée. 
+Avec notre expert <strong>Daniel A.</strong>, spécialiste en finance de marché, comprenez les opportunités des marchés financiers, 
+identifiez les stratégies adaptées à votre profil et maîtrisez les bases essentielles de la gestion du risque 
+pour investir avec méthode et confiance.
+</p>
 </div>
 <div class="card">
-<h3>Formations</h3>
-<p>Formations continues dans nos nos différentes communautés couvrant les finances personnelles, l'investissement et la spéculation.</p>
+<h3><strong>15 minutes</strong> pour diagnostiquer et optimiser vos finances</h3>
+<p>
+<strong>15 minutes</strong> pour diagnostiquer et optimiser vos finances. 
+Profitez d’un échange stratégique pour analyser votre situation actuelle, identifier les axes d’amélioration 
+et mettre en place des solutions concrètes afin de structurer, sécuriser et faire évoluer votre capital 
+avec méthode et clarté.
+</p>
 </div>
 <div class="card">
-<h3>Suivi & Diagnostic</h3>
-<p>Analyse complète de votre situation financière et recommandations précises.</p>
+<h3><strong>15 minutes</strong> pour savoir si le <strong>Trading</strong> est fait pour moi</h3>
+<p>
+<strong>15 minutes</strong> pour savoir si le <strong>Trading</strong> est fait pour vous. 
+Lors de cet échange stratégique, nous analysons votre profil, votre tolérance au risque, 
+vos objectifs financiers et votre discipline afin de déterminer si le trading correspond réellement 
+à votre personnalité et à vos ambitions. Une approche claire, honnête et orientée résultats.
+</p>
 </div>
 <div class="card">
 <h3>Solution Adaptée</h3>
-<p>Mise en place d’un plan d’action concret pour améliorer vos résultats.</p>
+<p>Nous sommes à l'écoute de vos demandes particulières pour vous aidez au mieux que nous pouvons.</p>
 </div>
 </div>
 </section>
@@ -190,7 +333,7 @@ font-size:0.9rem;
 </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS
 <section>
 <h2>Témoignages</h2>
 <div class="testimonials">
@@ -208,6 +351,8 @@ font-size:0.9rem;
 </div>
 </div>
 </section>
+-->
+
 
 <!-- FORM -->
 <section id="reservation">
